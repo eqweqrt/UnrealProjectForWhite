@@ -8,6 +8,8 @@ services:
     build:
       context: ../
       dockerfile: ./.deploy/Dockerfile
+    volumes:
+      - ../laravel:/app
     ports:
       - "8080:80"
     networks:
@@ -28,6 +30,15 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - laravel
+
+  adminer:
+    image: adminer
+    container_name: adminer-local
+    restart: unless-stopped
+    networks:
+      - laravel
+    depends_on:
+      - postgres
 
 networks:
   laravel:
