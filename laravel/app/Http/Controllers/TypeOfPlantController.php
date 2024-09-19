@@ -2,40 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\StoreTypeOfPlantAction;
-use App\Actions\UpdateTypeOfPlantAction;
-use App\DataTransferObjects\StoreTypeOfPlantData;
-use App\DataTransferObjects\UpdateTypeOfPlantData;
+use App\Actions\Plant\StoreTypeOfPlantAction;
+use App\Actions\Plant\UpdateTypeOfPlantAction;
+use App\DataTransferObjects\Plant\StoreTypeOfPlantData;
+use App\DataTransferObjects\Plant\UpdateTypeOfPlantData;
 use App\Models\TypeOfPlant;
 use Illuminate\Http\JsonResponse;
 
 class TypeOfPlantController extends Controller
 {
-    public function index()
+    public function index(): JsonResponse
     {
-        return TypeofPlant::all();
+        return response()->json(TypeofPlant::all());
     }
 
-    public function store(StoreTypeOfPlantData $data)
+    public function store(StoreTypeOfPlantData $data): JsonResponse
     {
         $typeOfPlant = StoreTypeOfPlantAction::execute($data);
-        return $typeOfPlant;
+        return response()->json($typeOfPlant, 201);
     }
 
-    public function show(TypeOfPlant $typeOfPlant)
+    public function show(TypeOfPlant $typeOfPlant): JsonResponse
     {
-        return $typeOfPlant;
+        return response()->json($typeOfPlant);
     }
 
-    public function update(TypeofPlant $typeOfPlant, UpdateTypeOfPlantData $data)
+    public function update(TypeofPlant $typeOfPlant, UpdateTypeOfPlantData $data): JsonResponse
     {
-        $typeOfPlant = UpdateTypeOfPlantAction::execute($typeOfPlant);
-        return $typeOfPlant;
+        $typeOfPlant = UpdateTypeOfPlantAction::execute($typeOfPlant, $data);
+        return response()->json($typeOfPlant, 200);
     }
 
-    public function delete(TypeOfPlant $typeOfPlant)
+    public function delete(TypeOfPlant $typeOfPlant): JsonResponse
     {
         $typeOfPlant->delete();
-        return 'Pu PU pU';
+        return response()->json('Success delete!', 200);
     }
 }

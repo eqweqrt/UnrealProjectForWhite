@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Actions;
-use App\DataTransferObjects\LoginData;
+namespace App\Actions\User;
+use App\DataTransferObjects\User\LoginData;
 use App\Models\User;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Hash;

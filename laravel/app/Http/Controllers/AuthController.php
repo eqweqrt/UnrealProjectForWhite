@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\RegistrationUserAction;
-use App\Actions\LoginUserAction;
-use App\Actions\LogoutUserAction;
-use App\DataTransferObjects\LoginData;
-use App\DataTransferObjects\RegistrationData;
+use App\Actions\User\LoginUserAction;
+use App\Actions\User\LogoutUserAction;
+use App\Actions\User\RegistrationUserAction;
+use App\DataTransferObjects\User\LoginData;
+use App\DataTransferObjects\User\RegistrationData;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

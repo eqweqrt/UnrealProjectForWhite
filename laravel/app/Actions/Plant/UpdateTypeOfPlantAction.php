@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Plant;
 
-use App\DataTransferObjects\UpdateTypeOfPlantData;
+use App\DataTransferObjects\Plant\UpdateTypeOfPlantData;
 use App\Models\TypeOfPlant;
 
 class UpdateTypeOfPlantAction

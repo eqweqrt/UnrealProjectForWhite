@@ -1,11 +1,11 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\Animal;
 
 use Spatie\LaravelData\Attributes\Validation\Nullable;
 use Spatie\LaravelData\Data;
 
-class UpdateTypeOfPlantData extends Data
+class UpdateTypeOfAnimalData extends Data
 {
     public function __construct(
         #[Nullable, Max(255)]

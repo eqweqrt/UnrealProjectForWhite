@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\User;
 
 use Spatie\LaravelData\Attributes\Validation\Email;
 use Spatie\LaravelData\Attributes\Validation\Password;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Plant;
 
-use App\DataTransferObjects\StoreTypeOfPlantData;
+use App\DataTransferObjects\Plant\StoreTypeOfPlantData;
 use App\Models\TypeOfPlant;
 
 class StoreTypeOfPlantAction
