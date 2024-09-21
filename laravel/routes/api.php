@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\TypeOfAnimalController;
 use App\Http\Controllers\TypeOfPlantController;
@@ -33,6 +34,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('animals/add', [AnimalController::class, 'add']);
     Route::post('animals/remove', [AnimalController::class, 'remove']);
 
+    Route::post('demands/create', [DemandsController::class, 'create']);
+    Route::post('demands/approve', [DemandsController::class, 'approve']);
+    Route::post('demands/decline', [DemandsController::class, 'decline']);
+    Route::get('demands', [DemandsController::class, 'index']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
