@@ -4,9 +4,9 @@ namespace App\Enums;
 
 enum DemandStatusEnum: string
 {
-    case Accepted = 'accepted';
+    case Approved = 'approved';
 
-    case Rejected = 'rejected';
+    case Declined = 'declined';
 
     case Pending = 'pending';
 }

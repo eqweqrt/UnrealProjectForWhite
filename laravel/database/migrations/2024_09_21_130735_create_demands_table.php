@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\DemandStatusEnum;
+use App\Enums\RoleEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +16,8 @@ return new class extends Migration
         Schema::create('demands', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
-            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
-            $table->enum('role', ['admin', 'employee']);
+            $table->enum('status', [DemandStatusEnum::Approved->value, DemandStatusEnum::Pending->value, DemandStatusEnum::Declined->value])->default(DemandStatusEnum::Pending->value);
+            $table->enum('role', [RoleEnum::Admin->value, RoleEnum::Employee->value]);
             $table->timestamps();
         });
     }

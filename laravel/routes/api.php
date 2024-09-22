@@ -12,7 +12,7 @@ Route::post('registration', [AuthController::class, 'registration']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('types-of-plants', [TypeOfPlantController::class, 'index']);
+    Route::get('types-of-plants', [TypeOfPlantController::class, 'index'])->middleware();
     Route::post('types-of-plants', [TypeOfPlantController::class, 'store']);
     Route::get('types-of-plants/{typeOfPlant}', [TypeOfPlantController::class, 'show']);
     Route::patch('types-of-plants/{typeOfPlant}', [TypeOfPlantController::class, 'update']);
@@ -34,10 +34,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('animals/add', [AnimalController::class, 'add']);
     Route::post('animals/remove', [AnimalController::class, 'remove']);
 
+    Route::get('demands', [DemandsController::class, 'index'])->name('demands.index');
     Route::post('demands/create', [DemandsController::class, 'create']);
-    Route::post('demands/approve', [DemandsController::class, 'approve']);
-    Route::post('demands/decline', [DemandsController::class, 'decline']);
-    Route::get('demands', [DemandsController::class, 'index']);
+    Route::post('demands/{demand}/approve', [DemandsController::class, 'approve']);
+    Route::post('demands/{demand}/decline', [DemandsController::class, 'decline']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
